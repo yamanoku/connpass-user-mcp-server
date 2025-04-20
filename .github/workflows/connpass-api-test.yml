@@ -1,0 +1,38 @@
+name: Connpass API Test
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "**.ts"
+      - "deno.json"
+      - ".github/workflows/connpass-api-test.yml"
+      - "!constants.ts"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    env:
+      CONNPASS_API_KEY: ${{ secrets.CONNPASS_API_KEY }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@909cc5acb0fdd60627fb858598759246509fa755 #v2.0.2
+        with:
+          deno-version: v2.x
+
+      - name: Verify formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno task test
