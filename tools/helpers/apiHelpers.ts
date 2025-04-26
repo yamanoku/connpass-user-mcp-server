@@ -1,4 +1,4 @@
-import "jsr:@std/dotenv/load";
+import "jsr:@std/dotenv@0.225.3/load";
 
 import type { TextContent } from "@modelcontextprotocol/sdk/types.js";
 import { USERSAPI } from "../../constants.ts";
