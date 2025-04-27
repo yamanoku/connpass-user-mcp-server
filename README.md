@@ -11,7 +11,8 @@ Context Protocol (MCP)サーバーです。
 
 1. （Connpass APIキーをすでに取得済の場合はスキップ）Connpass
    APIキーの発行をしてもらいます。詳細については[connpassのAPI利用について](https://help.connpass.com/api/)を参照してください。
-2. 必要な環境変数を設定します。`.env.example` を `.env` にコピーして、Connpass
+2. このリポジトリをクローンします。
+3. 必要な環境変数を設定します。`.env.example` を `.env` にコピーして、Connpass
    APIキーを設定します。
 
 ```bash
@@ -19,7 +20,7 @@ cp .env.example .env
 # .envファイルを編集してCONNPASS_API_KEYを設定
 ```
 
-3. サーバーを起動します。
+4. サーバーを起動します。
 
 ### Denoでの起動
 
@@ -32,7 +33,7 @@ cp .env.example .env
     "--env-file=/home/user/connpass-mcp-server/.env",
     "--allow-read",
     "--allow-env",
-    "/home/user/connpass-mcp-server/connpass-user-mcp-server.ts"
+    "/home/user/connpass-mcp-server/index.ts"
   ]
 }
 ```
@@ -57,7 +58,7 @@ npm run build
 "connpass-user-mcp-server": {
   "command": "wsl.exe",
   "args": [
-    "/home/user/.local/share/fnm/node/22.14.0/bin/node",
+    "/home/user/.local/share/mise/installs/node/22.14.0/bin/node",
     "--env-file=/home/user/connpass-mcp-server/.env",
     "/home/user/connpass-mcp-server/dist/index.js"
   ]
@@ -111,7 +112,7 @@ deno task test
 
 ## 謝辞
 
-このOSSはClaude 3.7
+このOSSはGPT-4o Image Generationによってロゴを製作、Claude 3.7
 Sonnetによって実装、ドキュメントのサンプルを提案いただきました。感謝申し上げます。
 
 ## ライセンス
