@@ -65,6 +65,36 @@ npm run build
 }
 ```
 
+### Dockerでの起動
+
+Dockerfileを使用してサーバーを起動することもできます。
+
+1. Dockerイメージをビルドします。
+
+```bash
+docker build -t connpass-user-mcp-server .
+```
+
+2. コンテナを起動します。APIキーは環境変数として渡します。
+
+```bash
+docker run -e CONNPASS_API_KEY=XXXXXXXXXXXXXXXX connpass-user-mcp-server
+```
+
+MCPクライアントの設定ファイルでは、`docker`コマンドを指定します。
+
+```json
+"connpass-user-mcp-server": {
+  "command": "docker",
+  "args": [
+    "run",
+    "-e",
+    "CONNPASS_API_KEY=XXXXXXXXXXXXXXXX",
+    "connpass-user-mcp-server"
+  ]
+}
+```
+
 ### `npx`での起動（非推奨）
 
 [@yamanoku/connpass-user-mcp-server](https://www.npmjs.com/package/@yamanoku/connpass-user-mcp-server)にてパッケージを提供しているため、リポジトリをクローンせずに`npx`でMCPサーバーの起動が可能です。
