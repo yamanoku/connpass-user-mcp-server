@@ -1,4 +1,8 @@
-# Connpass User MCP Server
+<p align="center">
+  <img src="./logo.png" alt="Connpass User MCP Serverロゴ" width="200" height="200">
+</p>
+
+<h1 align="center">Connpass User MCP Server</h1>
 
 [Connpass](https://connpass.com/)のユーザー情報や参加イベント情報等を取得するModel
 Context Protocol (MCP)サーバーです。
