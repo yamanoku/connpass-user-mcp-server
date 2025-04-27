@@ -1,9 +1,8 @@
-import "jsr:@std/dotenv@0.225.3/load";
-
 import type { TextContent } from "@modelcontextprotocol/sdk/types.js";
 import { USERSAPI } from "../../constants.ts";
+import { env } from "node:process";
 
-const API_KEY = Deno.env.get("CONNPASS_API_KEY") || "";
+const API_KEY = env.CONNPASS_API_KEY || "";
 
 if (!API_KEY) {
   console.warn("Warning: CONNPASS_API_KEY is not set in .env file");

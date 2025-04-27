@@ -28,6 +28,9 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Install dependencies
+        run: deno install
+
       - name: Verify formatting
         run: deno fmt --check
 
