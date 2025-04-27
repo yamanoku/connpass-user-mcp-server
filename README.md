@@ -19,7 +19,9 @@ cp .env.example .env
 # .envファイルを編集してCONNPASS_API_KEYを設定
 ```
 
-3. サーバーを起動します。以下はClaude Desktopでの起動方法の例です。
+3. サーバーを起動します。
+
+### Denoでの起動
 
 ```json
 "connpass-user-mcp-server": {
@@ -31,6 +33,33 @@ cp .env.example .env
     "--allow-read",
     "--allow-env",
     "/home/user/connpass-mcp-server/connpass-user-mcp-server.ts"
+  ]
+}
+```
+
+### Node.jsでの起動
+
+1. MCPサーバーを起動するために必要な依存関係をインストールします。
+
+```bash
+npm ci
+```
+
+2. TypeScriptをビルドします。
+
+```bash
+npm run build
+```
+
+3. MCPクライアントの設定ファイル側にビルドしたファイルを指定します。
+
+```json
+"connpass-user-mcp-server": {
+  "command": "wsl.exe",
+  "args": [
+    "/home/user/.local/share/fnm/node/22.14.0/bin/node",
+    "--env-file=/home/user/connpass-mcp-server/.env",
+    "/home/user/connpass-mcp-server/dist/index.js"
   ]
 }
 ```
@@ -72,6 +101,8 @@ cp .env.example .env
 
 ## テスト
 
+### Denoでのテスト
+
 Connpass APIの統合テストを実行します：
 
 ```bash
@@ -86,4 +117,3 @@ Sonnetによって実装、ドキュメントのサンプルを提案いただ�
 ## ライセンス
 
 [MIT License](./LICENSE)
-

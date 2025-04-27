@@ -1,0 +1,31 @@
+{
+  "name": "@yamanoku/connpass-user-mcp-server",
+  "version": "0.2.0",
+  "description": "Model Context Protocol server that provides connpass users API v2",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "start": "node --env-file=.env dist/index.js"
+  },
+  "keywords": [
+    "connpass",
+    "mcp",
+    "model-context-protocol"
+  ],
+  "author": "yamanoku",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.10.2",
+    "zod": "3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.31",
+    "tsdown": "0.9.8",
+    "typescript": "5.8.3"
+  }
+}

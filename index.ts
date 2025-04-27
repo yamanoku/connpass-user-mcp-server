@@ -1,17 +1,18 @@
-import { McpServer } from "npm:@modelcontextprotocol/sdk@^1.9.0/server/mcp.js";
-import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk@^1.9.0/server/stdio.js";
-import { z } from "npm:zod@^3.24.2";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
 import {
   getUserAttendedEvents,
   getUserGroupList,
   getUserList,
   getUserPresenterEvents,
 } from "./tools/index.ts";
+import process from "node:process";
 
 // MCPサーバーの初期化
 const server = new McpServer({
   name: "Connpass User MCP Server",
-  version: "0.1.0",
+  version: "0.1.1",
   capabilities: {
     resource: {},
     tools: {},
@@ -71,5 +72,5 @@ async function setMCPServer() {
 
 setMCPServer().catch((error) => {
   console.error("Fatal error in setMCPServer():", error);
-  Deno.exit(1);
+  process.exit(1);
 });
