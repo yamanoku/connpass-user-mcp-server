@@ -22,7 +22,7 @@ cp .env.example .env
 
 4. サーバーを起動します。
 
-### Denoでの起動
+### Denoでの起動（推奨）
 
 ```json
 "connpass-user-mcp-server": {
@@ -64,6 +64,23 @@ npm run build
   ]
 }
 ```
+
+### `npx`での起動（非推奨）
+
+[@yamanoku/connpass-user-mcp-server](https://www.npmjs.com/package/@yamanoku/connpass-user-mcp-server)にてパッケージを提供しているため、リポジトリをクローンせずに`npx`でMCPサーバーの起動が可能です。
+
+```json
+"connpass-user-mcp-server": {
+  "command": "wsl.exe",
+  "args": [
+    "bash",
+    "-c",
+    "CONNPASS_API_KEY=XXXXXXXXXXXXXXXX /home/user/.local/share/mise/installs/node/22.14.0/bin/npx -y @yamanoku/connpass-user-mcp-server",
+  ]
+},
+```
+
+**ただし`npx`でMCPサーバーを起動するのはサプライチェーン攻撃などのセキュリティ的な懸念があるため非推奨としています。**
 
 ## 機能
 
