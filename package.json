@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "Model Context Protocol server that provides connpass users API v2",
   "type": "module",
-  "main": "dist/index.js",
+  "bin": {
+    "@yamanoku/connpass-user-mcp-server": "dist/index.js"
+  },
   "files": [
     "dist",
     "logo.png"
