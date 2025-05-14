@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yamanoku-connpass-user-mcp-server-badge.png)](https://mseep.ai/app/yamanoku-connpass-user-mcp-server)
+
 <p align="center">
   <img src="./logo.png" alt="Connpass User MCP Serverロゴ" width="200" height="200">
 </p>
