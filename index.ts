@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/server/mcp"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/server/stdio"
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { McpServer } from "@modelcontextprotocol/server";
+import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 import { z } from "zod";
 import DenoJSON from "./deno.json" with { type: "json" };
 import {
@@ -25,44 +23,52 @@ const server = new McpServer({
   },
 });
 
-server.tool(
+server.registerTool(
   "get_connpass_user_list",
-  "Fetch Connpass user information",
   {
-    nickname: z.array(z.string()).describe("Connpass user ID/nickname"),
+    description: "Fetch Connpass user information",
+    inputSchema: z.object({
+      nickname: z.array(z.string()).describe("Connpass user ID/nickname"),
+    }),
   },
   async ({ nickname }: { nickname: string[] }) => {
     return await getUserList(nickname);
   },
 );
 
-server.tool(
+server.registerTool(
   "get_connpass_user_group_list",
-  "Fetch Connpass user group information",
   {
-    nickname: z.string().describe("Connpass user ID/nickname"),
+    description: "Fetch Connpass user group information",
+    inputSchema: z.object({
+      nickname: z.string().describe("Connpass user ID/nickname"),
+    }),
   },
   async ({ nickname }: { nickname: string }) => {
     return await getUserGroupList(nickname);
   },
 );
 
-server.tool(
+server.registerTool(
   "get_connpass_user_events",
-  "Fetch events for a specific Connpass user",
   {
-    nickname: z.string().describe("Connpass user ID/nickname"),
+    description: "Fetch events for a specific Connpass user",
+    inputSchema: z.object({
+      nickname: z.string().describe("Connpass user ID/nickname"),
+    }),
   },
   async ({ nickname }: { nickname: string }) => {
     return await getUserAttendedEvents(nickname);
   },
 );
 
-server.tool(
+server.registerTool(
   "get_connpass_user_presenter_events",
-  "Fetch presenter events for a specific Connpass user",
   {
-    nickname: z.string().describe("Connpass user ID/nickname"),
+    description: "Fetch presenter events for a specific Connpass user",
+    inputSchema: z.object({
+      nickname: z.string().describe("Connpass user ID/nickname"),
+    }),
   },
   async ({ nickname }: { nickname: string }) => {
     return await getUserPresenterEvents(nickname);
