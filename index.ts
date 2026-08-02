@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/server/mcp"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/server/stdio"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+import DenoJSON from "./deno.json" with { type: "json" };
 import {
   getUserAttendedEvents,
   getUserGroupList,
@@ -14,9 +17,10 @@ import process from "node:process";
 // MCPサーバーの初期化
 const server = new McpServer({
   name: "Connpass User MCP Server",
-  version: "0.1.1",
+  version: DenoJSON.version,
+}, {
   capabilities: {
-    resource: {},
+    resources: {},
     tools: {},
   },
 });
