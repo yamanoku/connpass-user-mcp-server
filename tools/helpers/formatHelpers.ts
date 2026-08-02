@@ -1,3 +1,4 @@
+// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/types"
 import type { TextContent } from "@modelcontextprotocol/sdk/types.js";
 import type { FormatGroups, FormatUsers } from "../../types.ts";
 

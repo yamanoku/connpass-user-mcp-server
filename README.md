@@ -9,6 +9,11 @@ Context Protocol (MCP)サーバーです。
 
 ## セットアップ
 
+### 必要な環境
+
+- [Node.js](https://nodejs.org/) 24 LTS
+- [Deno](https://deno.com/) 2.9 LTS
+
 1. （Connpass APIキーをすでに取得済の場合はスキップ）Connpass
    APIキーの発行をしてもらいます。詳細については[connpassのAPI利用について](https://help.connpass.com/api/)を参照してください。
 2. このリポジトリをクローンします。
@@ -58,7 +63,7 @@ npm run build
 "connpass-user-mcp-server": {
   "command": "wsl.exe",
   "args": [
-    "/home/user/.local/share/mise/installs/node/22.14.0/bin/node",
+    "/home/user/.local/share/mise/installs/node/24.18.1/bin/node",
     "--env-file=/home/user/connpass-mcp-server/.env",
     "/home/user/connpass-mcp-server/dist/index.js"
   ]
@@ -105,7 +110,7 @@ MCPクライアントの設定ファイルでは、`docker`コマンドを指定
   "args": [
     "bash",
     "-c",
-    "CONNPASS_API_KEY=XXXXXXXXXXXXXXXX /home/user/.local/share/mise/installs/node/22.14.0/bin/npx -y @yamanoku/connpass-user-mcp-server",
+    "CONNPASS_API_KEY=XXXXXXXXXXXXXXXX /home/user/.local/share/mise/installs/node/24.18.1/bin/npx -y @yamanoku/connpass-user-mcp-server",
   ]
 },
 ```
