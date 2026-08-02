@@ -1,5 +1,4 @@
-// @ts-types="npm:@modelcontextprotocol/sdk@1.30.0/types"
-import type { TextContent } from "@modelcontextprotocol/sdk/types.js";
+import type { TextContent } from "@modelcontextprotocol/server";
 import { USERSAPI } from "../../constants.ts";
 import { env } from "node:process";
 
